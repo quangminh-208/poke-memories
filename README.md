@@ -1,4 +1,4 @@
-# first-vue-proj
+# poke-memories
 
 ## Project setup
 ```
