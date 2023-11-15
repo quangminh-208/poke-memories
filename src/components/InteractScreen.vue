@@ -41,7 +41,8 @@ export default {
       this.rules.push(card);
       if (
         this.rules.length === 2 &&
-        this.rules[0].value === this.rules[1].value
+        this.rules[0].value === this.rules[1].value &&
+        this.rules[0].index !== this.rules[1].index
       ) {
         console.log("Right");
         // Add class 'disabled' to component 'Card'
@@ -65,7 +66,7 @@ export default {
         }
       } else if (
         this.rules.length === 2 &&
-        this.rules[0].value !== this.rules[1].value
+        this.rules[0].value !== this.rules[1].value 
       ) {
         console.log("Wrong");
         setTimeout(() => {
