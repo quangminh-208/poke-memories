@@ -8,7 +8,7 @@
     :cardsContext="settings.cardsContext"
     @onFinish="onGetResult"
   />
-  <result-screen v-if="statusMatch == 'result'" :timer="timer"/>
+  <result-screen v-if="statusMatch == 'result'" :timer="timer" @onStartAgain="statusMatch = 'defaulf'"/>
   <copyright-section />
 </template>
 

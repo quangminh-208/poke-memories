@@ -66,7 +66,7 @@ export default {
         }
       } else if (
         this.rules.length === 2 &&
-        this.rules[0].value !== this.rules[1].value 
+        this.rules[0].value !== this.rules[1].value
       ) {
         console.log("Wrong");
         setTimeout(() => {

@@ -2,7 +2,7 @@
   <div class="sreen">
     <h1>✨ Congratulations ✨</h1>
     <p>{{ Math.round(timer / 1000) }} seconds</p>
-    <button>Start Again</button>
+    <button @click="onStartAgain">Start Again</button>
   </div>
 </template>
 
@@ -14,6 +14,10 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    onStartAgain() {
+      this.$emit("onStartAgain");
+    }
+  },
 };
 </script>
