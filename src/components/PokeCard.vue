@@ -1,12 +1,50 @@
 <template>
-  <div class="card" :class="{disabled: isDisabled}">
+  <div
+    class="card"
+    :class="{ disabled: isDisabled }"
+    :style="{
+      height:
+        (Math.sqrt(cardsContext.length) < 8
+          ? (600 - 16 * 4) / Math.sqrt(cardsContext.length) - 16
+          : Math.sqrt(cardsContext.length) < 10
+          ? (600 - 16 * 4) / 5.5 - 16
+          : (600 - 16 * 4) / 7 - 16) + 'px',
+      width:
+        (Math.sqrt(cardsContext.length) < 8
+          ? (600 - 16 * 4) / Math.sqrt(cardsContext.length) - 16
+          : Math.sqrt(cardsContext.length) < 10
+          ? (600 - 16 * 4) / 5.5 - 16
+          : (600 - 16 * 4) / 7 - 16) + 'px',
+      perspective:
+        (Math.sqrt(cardsContext.length) < 8
+          ? (600 - 16 * 4) / Math.sqrt(cardsContext.length) - 16
+          : Math.sqrt(cardsContext.length) < 10
+          ? (600 - 16 * 4) / 5.5 - 16
+          : (600 - 16 * 4) / 7 - 16) * 2 + 'px',
+    }"
+  >
     <div
       class="card__inner"
       :class="{ 'is-flipped': isFlipped }"
       @click="onToggleFlipCard"
     >
       <div class="card__face card__face--front">
-        <div class="card__content"></div>
+        <div
+          class="card__content"
+          :style="{
+            backgroundSize:
+              (Math.sqrt(cardsContext.length) < 8
+                ? (600 - 16 * 4) / Math.sqrt(cardsContext.length) - 16
+                : Math.sqrt(cardsContext.length) < 10
+                ? (600 - 16 * 4) / 5.5 - 16
+                : (600 - 16 * 4) / 7 - 16) / 2 + 'px ' +
+              (Math.sqrt(cardsContext.length) < 8
+                ? (600 - 16 * 4) / Math.sqrt(cardsContext.length) - 16
+                : Math.sqrt(cardsContext.length) < 10
+                ? (600 - 16 * 4) / 5.5 - 16
+                : (600 - 16 * 4) / 7 - 16) / 2 + 'px',
+          }"
+        ></div>
       </div>
       <div class="card__face card__face--back">
         <div
@@ -29,6 +67,12 @@ export default {
     imgBackFaceUrl: {
       type: String,
       required: true,
+    },
+    cardsContext: {
+      type: Array,
+      default: function () {
+        return [];
+      },
     },
   },
   data() {
@@ -57,8 +101,6 @@ export default {
 .card {
   display: inline-block;
   margin: 1rem;
-  width: 100px;
-  height: 100px;
 }
 
 .card__inner {
@@ -91,7 +133,7 @@ export default {
 
 .card__face--front .card__content {
   background: url(../assets/images/icon_back.png) no-repeat center center;
-  background-size: 40px 40px;
+  /* background-size: 88px 88px; */
   width: 100%;
   height: 100%;
 }
